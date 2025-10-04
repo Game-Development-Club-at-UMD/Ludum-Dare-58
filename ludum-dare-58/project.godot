@@ -13,3 +13,10 @@ config_version=5
 config/name="Ludum Dare 58"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://Body Parts/": "red",
+"res://Moves/": "green"
+}
