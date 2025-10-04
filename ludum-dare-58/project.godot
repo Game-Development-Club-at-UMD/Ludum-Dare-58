@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ludum Dare 58"
-run/main_scene="uid://dm3oihg72dsfx"
+run/main_scene="uid://xe0debqevggf"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 folder_colors={
 "res://Body Parts/": "red",
 "res://Buttons/": "blue",
+"res://CombatTimer/": "yellow",
 "res://Moves/": "green"
 }
 
