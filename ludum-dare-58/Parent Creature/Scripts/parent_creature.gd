@@ -13,7 +13,7 @@ extends Node3D
 ## LimbHolder for creature's head Limb object
 @onready var head: LimbHolder = $Head
 
-## Arayy of LimbHolders for each nontorso holder
+## Array of LimbHolders for each nontorso holder
 @onready var limb_holders : Array[LimbHolder] = [left_arm, right_arm, left_leg, right_leg, head]
 
 ## Array of LimbHolder transforms for each body part

@@ -1,9 +1,10 @@
 class_name BodyPartResource extends Resource
 
+@export_enum("HEAD", "TORSO", "ARMS", "LEGS") var limb : String = "HEAD"
 @export_range(0, 100) var health : int
 @export_range(0, 100) var attack : int
-@export var move : Move
 
+@export var move : Move
 
 func getPartHealth() -> int:
 	return health

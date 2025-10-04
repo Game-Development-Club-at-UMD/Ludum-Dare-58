@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckc8m3md3gxpi"]
+[gd_scene load_steps=4 format=3 uid="uid://ckc8m3md3gxpi"]
 
 [ext_resource type="Script" uid="uid://dar7rr1l1o6e6" path="res://Limb Scenes/Scripts/torso.gd" id="1_smenp"]
+[ext_resource type="Resource" uid="uid://dfmyjg3ggtdv1" path="res://Body Parts/Resources/GenericTorso.tres" id="2_ppmt7"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_ppmt7"]
 size = Vector3(1.285, 1.84, 0.54)
@@ -12,6 +13,7 @@ right_arm = NodePath("RightArm")
 left_leg = NodePath("LeftLeg")
 right_leg = NodePath("RightLeg")
 head = NodePath("Head")
+body_part_resource = ExtResource("2_ppmt7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0)

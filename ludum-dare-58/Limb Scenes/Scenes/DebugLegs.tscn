@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh0ubkkncw414"]
+[gd_scene load_steps=5 format=3 uid="uid://c43f56via1wjv"]
 
-[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_bl1mq"]
-[ext_resource type="Resource" uid="uid://crsx12hn22trn" path="res://Body Parts/Resources/GenericArms.tres" id="2_8t21d"]
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_27x8c"]
+[ext_resource type="Resource" uid="uid://dhgt5hyrci0ei" path="res://Body Parts/Resources/GenericLegs.tres" id="2_27x8c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3cejn"]
 radius = 0.3
@@ -9,8 +9,8 @@ radius = 0.3
 [sub_resource type="SphereMesh" id="SphereMesh_ak6lm"]
 
 [node name="DebugLimb" type="Node3D"]
-script = ExtResource("1_bl1mq")
-body_part_resource = ExtResource("2_8t21d")
+script = ExtResource("1_27x8c")
+body_part_resource = ExtResource("2_27x8c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96738124, 0)

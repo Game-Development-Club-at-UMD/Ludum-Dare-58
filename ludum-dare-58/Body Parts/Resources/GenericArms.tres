@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BodyPartResource" load_steps=3 format=3 uid="uid://crsx12hn22trn"]
+
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="1_wd2gc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wd2gc"]
+size = Vector3(3.96, 1, 1)
+
+[resource]
+script = ExtResource("1_wd2gc")
+limb = 2
+model = SubResource("BoxMesh_wd2gc")
+metadata/_custom_type_script = "uid://dd41tco78dti3"

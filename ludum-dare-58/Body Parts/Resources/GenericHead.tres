@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BodyPartResource" load_steps=4 format=3 uid="uid://076mrrrxg5pd"]
+
+[ext_resource type="Resource" uid="uid://l1y241uqfgnc" path="res://Moves/Resources/BasicAttack.tres" id="1_3aybn"]
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="2_1i8pi"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wbhyb"]
+
+[resource]
+script = ExtResource("2_1i8pi")
+limb = 0
+model = SubResource("SphereMesh_wbhyb")
+health = 20
+attack = 20
+move = ExtResource("1_3aybn")
+metadata/_custom_type_script = "uid://dd41tco78dti3"

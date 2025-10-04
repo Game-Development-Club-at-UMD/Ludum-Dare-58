@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BodyPartResource" load_steps=2 format=3 uid="uid://dhgt5hyrci0ei"]
+
+[ext_resource type="Script" uid="uid://dd41tco78dti3" path="res://Body Parts/BodyPartResource.gd" id="1_jhgjj"]
+
+[resource]
+script = ExtResource("1_jhgjj")
+limb = "LEGS"
+metadata/_custom_type_script = "uid://dd41tco78dti3"
