@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bknh6xxyuoh4i"]
+
+[ext_resource type="PackedScene" uid="uid://mkus6jx5gemi" path="res://CombatTimer/combat_timer.tscn" id="1_6od2i"]
+
+[node name="combat_timer_test" type="Node2D"]
+
+[node name="CombatTimer" parent="." instance=ExtResource("1_6od2i")]
+
+[node name="Button" type="Button" parent="CombatTimer"]
+unique_name_in_owner = true
+offset_left = 135.0
+offset_top = 55.0
+offset_right = 612.0
+offset_bottom = 227.0
+
+[connection signal="pressed" from="CombatTimer/Button" to="CombatTimer" method="_on_button_pressed"]

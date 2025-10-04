@@ -16,12 +16,3 @@ fill_mode = 3
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
-
-[node name="Button" type="Button" parent="."]
-unique_name_in_owner = true
-offset_left = 135.0
-offset_top = 55.0
-offset_right = 612.0
-offset_bottom = 227.0
-
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
