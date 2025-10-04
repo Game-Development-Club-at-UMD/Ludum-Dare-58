@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://xe0debqevggf"]
-
-[ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="1_dpr5k"]
-
-[node name="DodgingButtonTest" type="Node2D"]
-
-[node name="DodgeButton" parent="." instance=ExtResource("1_dpr5k")]
-position = Vector2(338, 267)

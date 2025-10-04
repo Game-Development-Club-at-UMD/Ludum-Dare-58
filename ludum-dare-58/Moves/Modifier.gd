@@ -1,17 +1,16 @@
 class_name Modifier
 
-var HP : int = 0
 #var Multipler : float = 1.5
 
 enum ModifierType {
-	DAMAGEATMAXHEALTH
+	NONE, DAMAGEATMAXHEALTH
 }
 
 func DamageAtMaxHealth(damage : int):
-	damage = damage * 1.5
-	return int(damage)
+	damage = damage * 2
+	return damage
 	
-func apply_modifier(mod_type: int, damage: int, hp : int) -> int:
+func apply_modifier(mod_type: int, damage: int) -> int:
 	match mod_type:
 		ModifierType.DAMAGEATMAXHEALTH:
 			return DamageAtMaxHealth(damage)
