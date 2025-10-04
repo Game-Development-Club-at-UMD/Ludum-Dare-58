@@ -1,4 +1,5 @@
 extends Node3D
+class_name ParentCreature
 
 ## TorsoHolder for the creature's Torso object
 @onready var torso: TorsoHolder = $Torso

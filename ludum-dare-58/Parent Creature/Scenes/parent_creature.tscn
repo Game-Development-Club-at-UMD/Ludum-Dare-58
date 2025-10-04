@@ -7,11 +7,6 @@
 [node name="ParentCreature" type="Node3D"]
 script = ExtResource("1_d4k63")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.908662)
-visible = false
-current = true
-
 [node name="Torso" type="Node3D" parent="."]
 script = ExtResource("2_w5m17")
 
