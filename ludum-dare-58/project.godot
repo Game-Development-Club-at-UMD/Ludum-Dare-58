@@ -21,6 +21,7 @@ folder_colors={
 "res://Body Parts/": "red",
 "res://Buttons/": "blue",
 "res://Moves/": "green"
+"res://Parent Creature/": "blue"
 }
 
 [input]
