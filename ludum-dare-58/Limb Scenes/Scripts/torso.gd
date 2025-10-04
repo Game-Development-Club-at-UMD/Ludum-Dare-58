@@ -6,7 +6,7 @@ class_name Torso extends BaseBodyPart
 @export var right_leg : Marker3D
 @export var head : Marker3D
 
-func get_limb_positions() -> Dictionary:
+func get_limb_positions() -> Dictionary[String, Vector3]:
 	return {
 		"LeftArm": left_arm.position,
 		"RightArm": right_arm.position,
