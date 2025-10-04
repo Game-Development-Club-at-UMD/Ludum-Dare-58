@@ -25,14 +25,13 @@ func _ready() -> void:
 	for holder in limb_holders:
 		holder.connect("instancing_new_limb", _on_new_limb_part_instanced)
 
-#func _process(_delta: float) -> void:
-	#if Input.is_action_just_released("ui_accept"):
-		#debug_limb_swapping()
+func _process(_delta: float) -> void:
+	if Input.is_action_just_released("ui_accept"):
+		debug_limb_swapping()
 
 ## Sets the transform of each LimbHolder node
 func _on_new_torso_part_instanced(new_torso : Torso):
 	transforms = new_torso.get_limb_positions()
-	
 	left_arm.set_transform(transforms.get("LeftArm"))
 	right_arm.set_transform(transforms.get("RightArm"))
 	left_leg.set_transform(transforms.get("LeftLeg"))
@@ -43,11 +42,11 @@ func _on_new_torso_part_instanced(new_torso : Torso):
 func _on_new_limb_part_instanced(new_limb : Limb):
 	pass
 #
-#func debug_limb_swapping():
-	#for holder in limb_holders:
-		#if holder.name != "Head":
-			#holder.set_body_part(load("res://Limb Scenes/Scenes/DebugLimb.tscn"))
-		#else:
-			#holder.set_body_part(load("res://Limb Scenes/Scenes/DebugHead.tscn"))
-	#torso.set_body_part(load("res://Limb Scenes/Scenes/DebugTorso.tscn"))
-	#
+func debug_limb_swapping():
+	for holder in limb_holders:
+		if holder.name != "Head":
+			holder.set_body_part(load("res://Limb Scenes/Scenes/DebugLimb.tscn"))
+		else:
+			holder.set_body_part(load("res://Limb Scenes/Scenes/DebugHead.tscn"))
+	torso.set_body_part(load("res://Limb Scenes/Scenes/DebugTorso.tscn"))
+	
