@@ -1,37 +1,52 @@
 extends Node2D
 
 
+@onready var sfx_volume: HSlider = $MarginContainer/VBoxContainer/SettingMenu/HBoxContainer3/SFXVolume
+@onready var music_volume: HSlider = $MarginContainer/VBoxContainer/SettingMenu/HBoxContainer2/MusicVolume
+@onready var main_volume: HSlider = $MarginContainer/VBoxContainer/SettingMenu/HBoxContainer/MainVolume
+@onready var play: Button = $MarginContainer/VBoxContainer/MainButtons/Play
+@onready var settings: Button = $MarginContainer/VBoxContainer/MainButtons/Settings
+@onready var credits: Button = $MarginContainer/VBoxContainer/MainButtons/Credits
+@onready var quit: Button = $MarginContainer/VBoxContainer/MainButtons/Quit
+@onready var fullscreen: CheckBox = $MarginContainer/VBoxContainer/SettingMenu/Fullscreen
+@onready var main_buttons: VBoxContainer = $MarginContainer/VBoxContainer/MainButtons
+@onready var setting_menu: VBoxContainer = $MarginContainer/VBoxContainer/SettingMenu
+@onready var back: Button = $MarginContainer/VBoxContainer/SettingMenu/Back
+@onready var credits_menu: VBoxContainer = $MarginContainer/VBoxContainer/CreditsMenu
+@onready var credits_back: Button = $MarginContainer/VBoxContainer/CreditsMenu/Back
+
+
 func _ready() -> void:
-	$CenterContainer/MainButtons/Play.grab_focus()
-	$CenterContainer/SettingMenu/Fullscreen.button_pressed = true if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN else false
-	$CenterContainer/SettingMenu/MainVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
-	$CenterContainer/SettingMenu/MusicVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("MUSIC")))
-	$CenterContainer/SettingMenu/SFXVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	play.grab_focus()
+	fullscreen.button_pressed = true if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN else false
+	main_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("MUSIC")))
+	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 
 func _on_play_pressed() -> void:
 	print("change scene")
 
 func _on_settings_pressed() -> void:
-	$CenterContainer/MainButtons.visible = false
-	$CenterContainer/SettingMenu.visible = true
-	$CenterContainer/SettingMenu/Back.grab_focus()
+	main_buttons.visible = false
+	setting_menu.visible = true
+	back.grab_focus()
 
 func _on_credits_pressed() -> void:
-	$CenterContainer/MainButtons.visible = false
-	$CenterContainer/CreditsMenu.visible = true
-	$CenterContainer/CreditsMenu/Back.grab_focus()
+	main_buttons.visible = false
+	credits_menu.visible = true
+	credits_back.grab_focus()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_back_pressed() -> void:
-	$CenterContainer/MainButtons.visible = true
-	if $CenterContainer/SettingMenu.visible:
-		$CenterContainer/SettingMenu.visible = false
-		$CenterContainer/MainButtons/Settings.grab_focus()
-	if $CenterContainer/CreditsMenu.visible:
-		$CenterContainer/CreditsMenu.visible = false
-		$CenterContainer/MainButtons/Credits.grab_focus()
+	main_buttons.visible = true
+	if setting_menu.visible:
+		setting_menu.visible = false
+		settings.grab_focus()
+	if credits_menu.visible:
+		credits_menu.visible = false
+		credits.grab_focus()
 
 
 func _on_fullscreen_toggled(toggled_on: bool) -> void:
