@@ -20,7 +20,8 @@ config/icon="res://icon.svg"
 folder_colors={
 "res://Body Parts/": "red",
 "res://Buttons/": "blue",
-"res://Moves/": "green"
+"res://Limb Scenes/": "purple",
+"res://Moves/": "green",
 "res://Parent Creature/": "blue"
 }
 

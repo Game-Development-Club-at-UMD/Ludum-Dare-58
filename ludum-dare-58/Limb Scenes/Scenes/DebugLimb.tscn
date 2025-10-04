@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh0ubkkncw414"]
+
+[ext_resource type="Script" uid="uid://cajfaroiow6ms" path="res://Limb Scenes/Scripts/limb.gd" id="1_bl1mq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3cejn"]
+radius = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_ak6lm"]
+
+[node name="DebugLimb" type="Node3D"]
+script = ExtResource("1_bl1mq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96738124, 0)
+mesh = SubResource("CapsuleMesh_3cejn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ak6lm")
