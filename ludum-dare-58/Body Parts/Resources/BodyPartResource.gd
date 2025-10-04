@@ -1,5 +1,4 @@
-class_name BodyPartResource
-extends Resource
+class_name BodyPartResource extends Resource
 
 
 @export_range(0, 100) var health : int
