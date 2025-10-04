@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Ludum Dare 58"
+run/main_scene="uid://thtjuhs0ipk8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Main Menu/default_bus_layout.tres"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
@@ -21,6 +30,7 @@ folder_colors={
 "res://Buttons/": "blue",
 "res://Combat/": "orange",
 "res://Limb Scenes/": "purple",
+"res://Main Menu/": "orange",
 "res://Moves/": "green",
 "res://Parent Creature/": "blue"
 }
