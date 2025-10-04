@@ -2,7 +2,7 @@ class_name AttackMove
 extends Move
 
 @export var sprite : Texture2D
-@export var Damage_Value : int = 2
+@export var Damage_Value : int = 0
 @export_enum("DamageAtMaxHealth", "LowDamage") var modifier_type : int
 @export var MaxHp : int
 
