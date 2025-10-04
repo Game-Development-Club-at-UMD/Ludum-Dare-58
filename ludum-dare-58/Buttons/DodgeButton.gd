@@ -1,3 +1,4 @@
+class_name DodgeButton
 extends Node2D
 
 @onready var label: Label = $Label
@@ -5,8 +6,8 @@ extends Node2D
 @onready var dodge_timer: Timer = $DodgeTimer
 
 
-signal dodgingStart
-signal dodgingEnd
+signal dodgeStart
+signal dodgeEnd
 
 
 func _ready() -> void:
@@ -20,17 +21,17 @@ func _process(_delta: float) -> void:
 		
 
 
-func startDodge():
-	dodgingStart.emit()
+func startDodge() -> void:
+	dodgeStart.emit()
 	dodge_timer.start()
 	cooldown_timer.start()
 	await dodge_timer.timeout
-	dodgingEnd.emit()
+	dodgeEnd.emit()
 	await cooldown_timer.timeout
 	
 	label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 
 
-func updateCooldownTimer(cooldown : float, dodgeLength : float):
+func updateCooldownTimer(cooldown : float, dodgeLength : float) -> void:
 	dodge_timer.wait_time = dodgeLength
 	cooldown_timer.wait_time = cooldown - dodgeLength

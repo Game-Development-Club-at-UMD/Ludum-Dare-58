@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsxrd7mpj0l0f"]
+
+[ext_resource type="Script" uid="uid://dtjw17ehcurav" path="res://PartsCollection/Scripts/parts_collection.gd" id="1_40ec4"]
+[ext_resource type="PackedScene" uid="uid://dqxqly67jsiix" path="res://PlayerController/player_controller.tscn" id="2_aicv4"]
+
+[node name="PartsCollection" type="Node3D" node_paths=PackedStringArray("player_controller")]
+script = ExtResource("1_40ec4")
+player_controller = NodePath("PlayerController")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.108047515, 0.5922562)
+
+[node name="PlayerController" parent="." instance=ExtResource("2_aicv4")]
+transform = Transform3D(1, 0, 0, 0, 0.9990686, -0.043148547, 0, 0.043148547, 0.9990686, 0, 0.3219672, 3.7010198)
