@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckm4jkowybpia"]
 
-[ext_resource type="PackedScene" uid="uid://duuy661qaoaco" path="res://Combat/combat_manager.tscn" id="1_ny3ru"]
+[ext_resource type="PackedScene" uid="uid://duuy661qaoaco" path="res://Combat/Manager/combat_manager.tscn" id="1_ny3ru"]
 
 [sub_resource type="Environment" id="Environment_ny3ru"]
 background_mode = 1

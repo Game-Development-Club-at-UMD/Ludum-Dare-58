@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5g1270je8cs4"]
+
+[ext_resource type="Script" uid="uid://dh1vhk28np72i" path="res://Enemy_AI_Manager/Enemy_Manager.gd" id="1_uhwqb"]
+[ext_resource type="PackedScene" uid="uid://dr6x0l7rc5yuk" path="res://Parent Creature/Scenes/parent_creature.tscn" id="2_7gwp7"]
+
+[node name="Enemy_Manager_Tester" type="Node2D"]
+script = ExtResource("1_uhwqb")
+
+[node name="ParentCreature" parent="." instance=ExtResource("2_7gwp7")]

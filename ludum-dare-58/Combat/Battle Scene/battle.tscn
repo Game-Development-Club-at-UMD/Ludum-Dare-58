@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cp2prdao74j3h"]
 
-[ext_resource type="Script" uid="uid://c7wrivykeywb6" path="res://battle.gd" id="1_ip7xm"]
+[ext_resource type="Script" uid="uid://c7wrivykeywb6" path="res://Combat/Battle Scene/battle.gd" id="1_ip7xm"]
 [ext_resource type="Resource" uid="uid://bpghkryt3mr0c" path="res://Combat/Pwhizz.tres" id="2_7sfm4"]
 [ext_resource type="Texture2D" uid="uid://dstft2ogyxgit" path="res://icon.svg" id="3_i431l"]
 
