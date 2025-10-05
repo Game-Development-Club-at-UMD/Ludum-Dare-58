@@ -2,6 +2,8 @@ extends Node
 
 @onready var attackMove
 
+var moveDict : MoveHolder = MoveHolder.new()
+
 #Place holder for now
 var health : int = 21
 var Damage : int 
@@ -9,11 +11,11 @@ var AttackHPC : bool
 var selfDamage : int
 
 # AI dosnt Kill itself with moves that do self damage	
-func AttackHPCheck(SelfDamage) -> bool:
-	if((health - SelfDamage) > 0):
-		return true
-	else:
-		return false
+#func AttackHPCheck(SelfDamage) -> bool:
+	#if((health - SelfDamage) > 0):
+		#return true
+	#else:
+		#return false
 	
 # Random Selection of one of the 4 moves	
 func SelectMove(move):
@@ -34,10 +36,8 @@ func SendDamageToPlayer() -> void:
 	pass
 
 func _ready() -> void:
-	while(true):
-		attackMove = randi_range(1, 4)
-		print("AttackMove: ", attackMove)
-		SelectMove(attackMove)
+	attackMove = randi_range(1, 4)
+	SelectMove(attackMove)
 		
 		#AttackHPC = AttackHPCheck(SelectMove(attackMove))
 		#if AttackHPC:
@@ -45,4 +45,4 @@ func _ready() -> void:
 		#else:
 			#pass
 		
-		if(move.hasSelfDamage)
+		#if(move.hasSelfDamage)
