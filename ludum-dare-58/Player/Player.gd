@@ -1,22 +1,32 @@
 class_name Player extends ParentCreature
 
+@onready var currentHealth : int = current_health
 
-#Signal Max Health
-#signal maxHealth()
-
-#Signal Attack
+signal sendMaxHealth(pMaxHealth : int)
+signal sendCurrentHealth(pCurrentHealth : int)
 
 
 #Function to alter health
-func takeDamage(health : int, damage : int) -> int:
-	health -= damage
-	return health
+func takeDamage(enemyDamage : int) -> void:
+	subtractHealth(enemyDamage)
+	
+	
+func updateCurrentHealthUI() -> void:
+	sendCurrentHealth.emit(getCurrentHealth())
 
-# Called when the node enters the scene tree for the first time.
+
+# Debugger to test
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:	
+	#sendMaxHealth.emit(getMaxHealth())
+	#sendCurrentHealth.emit(getCurrentHealth())
 	pass
+
+func _process(delta: float) -> void:	
+	#debug()
+	pass
+	
+func debug() -> void:
+	if Input.is_action_just_released("ui_accept"):
+		debug_limb_swapping()
+		sendMaxHealth.emit(getMaxHealth())
+		sendCurrentHealth.emit(getCurrentHealth())
