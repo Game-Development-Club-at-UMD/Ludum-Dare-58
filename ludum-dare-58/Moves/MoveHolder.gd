@@ -9,3 +9,7 @@ func addtoMoveDict(newMove : Move):
 
 func getMoveFromDict(key : String) -> Move:
 	return moveDict[key]
+
+
+func clearDict():
+	moveDict.clear()
