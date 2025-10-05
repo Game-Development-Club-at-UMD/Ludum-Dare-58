@@ -163,6 +163,7 @@ grow_vertical = 2
 [node name="DebugPlayer" parent="." instance=ExtResource("2_v35c4")]
 
 [node name="Enemy" parent="." instance=ExtResource("2_16hna")]
+unique_name_in_owner = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = SubResource("ViewportTexture_fd3ov")

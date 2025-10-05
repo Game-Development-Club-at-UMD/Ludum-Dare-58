@@ -2,7 +2,8 @@ class_name CombatManager extends Node3D
 
 @onready var dodge_button: DodgeButton = %DodgeButton
 @onready var player: Node3D = $DebugPlayer
-@onready var enemy : Enemy = %Enemy
+#@onready var enemy : Enemy = %Enemy
+@onready var enemy: Enemy = $Enemy
 
 #TODO: have cleaner way to get each attack button, makes it easier to import resources to/grab resources from
 #TODO: also, have some kind of CombatButton class

@@ -1,4 +1,4 @@
-extends Node
+class_name EnemyCreature extends Node 
 
 @onready var creature: ParentCreature = $ParentCreature
 
