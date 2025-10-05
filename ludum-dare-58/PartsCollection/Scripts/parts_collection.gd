@@ -21,9 +21,7 @@ func instance_new_enemy(new_enemy : PackedScene):
 		push_error("Error in node ", name, ": Attempted to instance node of type ", instanced_enemy.get_class())
 		instanced_enemy.queue_free()
 		return null
-	
-	
-	
+
 	#TODO: fix enemy spawning in at the correct position/rotation
 	enemy_holder.add_child(instanced_enemy)
 	instanced_enemy.global_transform = enemy_holder.global_transform
