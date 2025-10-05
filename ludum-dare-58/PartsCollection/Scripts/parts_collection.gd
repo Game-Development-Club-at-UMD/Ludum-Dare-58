@@ -2,6 +2,7 @@ extends Node3D
 const PARENT_CREATURE = preload("uid://dr6x0l7rc5yuk")
 
 var enemy : ParentCreature
+@onready var enemy_holder: Node3D = $EnemyHolder
 
 @export var player_controller : PlayerController
 
@@ -19,18 +20,24 @@ func instance_new_enemy(new_enemy : PackedScene):
 		push_error("Error in node ", name, ": Attempted to instance node of type ", instanced_enemy.get_class())
 		instanced_enemy.queue_free()
 		return null
-
-	add_child(instanced_enemy)
 	
-	instanced_enemy.global_position = global_position
+	#TODO: fix enemy spawning in at the correct position/rotation
+	enemy_holder.add_child(instanced_enemy)
+	instanced_enemy.global_transform = enemy_holder.global_transform
+	
+	
 	if enemy != null:
 		enemy.queue_free()
 	enemy = instanced_enemy
+	enemy.global_transform = enemy_holder.global_transform
 
 @warning_ignore("unused_parameter")
-func _on_player_clicked_node(limb_holder_clicked : Node, limb : PackedScene):
-	if limb == null:
+func _on_player_clicked_node(node_clicked : Node):
+	if node_clicked.name == "Cauldron":
+		print("cauldron clicked")
+	if node_clicked is not BaseBodyPart:
 		return
+	
 	#TODO: initiate part constructor here
 
 
