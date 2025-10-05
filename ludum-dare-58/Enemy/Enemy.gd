@@ -1,7 +1,6 @@
 class_name Enemy extends ParentCreature
 
 signal sendEnemyMove(emittedMove : Move)
-signal turnFinished
 
 var rNum : int
 
@@ -9,7 +8,7 @@ var rNum : int
 func SelectMove():
 	rNum = randi_range(1, getMovesHolder().moveDict.size())
 	sendEnemyMove.emit(getMovesHolder().getMoveFromDict("Move"+ str(rNum)))
-	print(getMovesHolder().getMoveFromDict("Move"+ str(rNum)).getName())
+	print("Selected Move: " + getMovesHolder().getMoveFromDict("Move"+ str(rNum)).getName())
 
 func SendDamageToPlayer() -> void:
 	pass

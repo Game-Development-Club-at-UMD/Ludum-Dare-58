@@ -10,9 +10,11 @@ unique_name_in_owner = true
 offset_right = 44.0
 offset_bottom = 322.0
 max_value = 6.0
-rounded = true
 fill_mode = 3
+show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[connection signal="value_changed" from="ProgressBar" to="." method="_on_progress_bar_value_changed"]

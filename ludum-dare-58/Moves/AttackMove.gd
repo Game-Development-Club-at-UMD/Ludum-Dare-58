@@ -8,6 +8,5 @@ extends Move
 var modifier : Modifier = Modifier.new()
 
 func DoMove(target : ParentCreature) -> void:
-	print(modifier_type)
 	Damage_Value = modifier.apply_modifier(modifier_type, Damage_Value)
 	#target.callDamage()

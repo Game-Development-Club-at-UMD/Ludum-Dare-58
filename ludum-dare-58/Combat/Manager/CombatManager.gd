@@ -14,14 +14,12 @@ class_name CombatManager extends Node3D
 
 @onready var buttons_arr : Array[Button] = [button_1, button_2, button_3, button_4]
 
-var did_player_dodge : bool = false
 
 func _ready() -> void:
 	playerstats.visible = false
 	enemy.debug_limb_swapping()
 	player.debug_limb_swapping()
-	dodge_button.connect("dodgeStart", _on_dodge_timer_start)
-	dodge_button.connect("dodgeEnd", _on_dodge_timer_end)
+	dodge_button.connect("dodgeStartPhase", _on_dodge_timer_start)
 	#TODO: make signal in class CombatButton to emit its held Move resource when its clicked
 	#for button in buttons_arr:
 		#button.connect('clicked', callMoveOnEnemy)
@@ -33,14 +31,14 @@ func _ready() -> void:
 	await get_tree().create_timer(3).timeout
 	
 	# do enemy attack here to start the cycle of dodging and whatnot
-	dodge_button.startDodge(3)
+	dodge_button.startDodgePhase()
+	start_enemy_attack()
 	#TODO: add an actual attack telegraph here to give the player a better indication to dodge
 
 ## called when dodge timer starts in dodgeButton
 func _on_dodge_timer_start():
 	print("PLAYER START DODGING")
 	dodge_button.visible = true
-	did_player_dodge = false
 
 ## called when dodge timer ends in dodgeButton, dodge_result is the boolean value representing the success
 ## of the player's dodge
@@ -48,15 +46,16 @@ func _on_dodge_timer_end(dodge_result : bool):
 	print("PLAYER STOP DODGING")
 	print('dodge outcome: ', dodge_result)
 	dodge_button.visible = false
-	did_player_dodge = dodge_result
 	enemy.SelectMove()
+
 
 ## called after the dodge timer ends, triggers enemy anims and either the player dodge or hit anims
 ## + triggers damage to player if they were hit
 func callMoveOnPlayer(move : Move):
+	dodge_button.setCanDodge(false)
 	print("enemy calling move")
 	# TODO: trigger enemy attack anims regardless of dodge outcome
-	if did_player_dodge:
+	if dodge_button.getIsDodging():
 		print("enemy misses player")
 		# TODO: trigger player dodge animation here
 		pass
@@ -86,4 +85,10 @@ func end_player_attack():
 	playerstats.visible = false
 	await get_tree().create_timer(1).timeout
 	# restart attack loops here
-	dodge_button.startDodge(3)
+	dodge_button.startDodgePhase()
+	start_enemy_attack()
+
+
+func start_enemy_attack():
+	await get_tree().create_timer(1).timeout
+	enemy.SelectMove()

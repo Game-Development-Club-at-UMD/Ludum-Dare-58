@@ -22,11 +22,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "!!! DODGE !!!"
 
-[node name="CooldownTimer" type="Timer" parent="."]
+[node name="InvulnTimer" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
 
-[node name="DodgeTimer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
-[connection signal="timeout" from="DodgeTimer" to="." method="_on_dodge_timer_timeout"]
+[connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]
