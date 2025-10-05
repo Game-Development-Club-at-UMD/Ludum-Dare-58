@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Ludum Dare 58"
-run/main_scene="uid://thtjuhs0ipk8"
+run/main_scene="res://Combat/Battle Scene/battle.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
 
 buses/default_bus_layout="res://Main Menu/default_bus_layout.tres"
+
+[autoload]
+
+SceneSwitcher="*res://scene_switcher.gd"
 
 [display]
 
@@ -29,10 +33,13 @@ folder_colors={
 "res://Body Parts/": "red",
 "res://Buttons/": "blue",
 "res://Combat/": "orange",
+"res://CombatTimer/": "yellow",
+"res://Enemy/": "pink",
 "res://Limb Scenes/": "purple",
 "res://Main Menu/": "orange",
 "res://Moves/": "green",
-"res://Parent Creature/": "blue"
+"res://Parent Creature/": "blue",
+"res://Player/": "pink"
 }
 
 [input]
