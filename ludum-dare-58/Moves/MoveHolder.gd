@@ -13,3 +13,10 @@ func getMoveFromDict(key : String) -> Move:
 
 func clearDict():
 	moveDict.clear()
+
+##Returns a boolean based on if a Move resource exists as a value in the moveDict
+func checkIfValueExists(newMove : Move) -> bool:
+	for key in moveDict.keys():
+		if moveDict[key] == newMove:
+			return true
+	return false
