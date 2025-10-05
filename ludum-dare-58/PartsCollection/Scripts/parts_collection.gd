@@ -22,7 +22,7 @@ func instance_new_enemy(new_enemy : PackedScene):
 		instanced_enemy.queue_free()
 		return null
 	
-	self.add_child(instanced_enemy)
+	
 	
 	#TODO: fix enemy spawning in at the correct position/rotation
 	enemy_holder.add_child(instanced_enemy)
