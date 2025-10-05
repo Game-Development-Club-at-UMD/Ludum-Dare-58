@@ -1,6 +1,7 @@
 class_name Enemy extends ParentCreature
 
 signal sendEnemyMove(emittedMove : Move)
+signal turnFinished
 
 var rNum : int
 

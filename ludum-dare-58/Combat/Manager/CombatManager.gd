@@ -15,14 +15,16 @@ func _ready() -> void:
 	await get_tree().create_timer(5).timeout
 	# do enemy attack here to start the cycle of dodging and whatnot
 
-func switchTurn():
-	pass
+#func switchTurn():
+	#pass
 
 
 func dodgeStart():
+	# reveal dodge UI
 	dodging = true
 
 func dodgeEnd():
+	# hide dodge UI
 	dodging = false
 
 
