@@ -66,6 +66,5 @@ func addMovesToMoveDict():
 
 ## Returns the dictionary in moveHolder
 func getMovesHolder() -> MoveHolder:
-	debug_limb_swapping()
 	return moveHolder
 	
