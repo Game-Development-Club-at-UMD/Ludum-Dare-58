@@ -1,5 +1,5 @@
-extends Node3D
-const PARENT_CREATURE = preload("uid://dr6x0l7rc5yuk")
+class_name PartsCollection extends Node3D
+
 
 var enemy : ParentCreature
 
@@ -11,6 +11,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		debug()
+	if Input.is_action_just_pressed("ui_down"):
+		SceneSwitcher.switch_scene("res://Main Menu/main_menu.tscn")
 
 func instance_new_enemy(new_enemy : PackedScene):
 	var instanced_enemy = new_enemy.instantiate()
@@ -19,24 +21,50 @@ func instance_new_enemy(new_enemy : PackedScene):
 		push_error("Error in node ", name, ": Attempted to instance node of type ", instanced_enemy.get_class())
 		instanced_enemy.queue_free()
 		return null
-
-	add_child(instanced_enemy)
+	
+	
+	self.add_child(instanced_enemy)
+	instanced_enemy.owner = self
 	
 	instanced_enemy.global_position = global_position
 	if enemy != null:
 		enemy.queue_free()
 	enemy = instanced_enemy
 
-@warning_ignore("unused_parameter")
-func _on_player_clicked_node(limb_holder_clicked : Node, limb : PackedScene):
-	if limb == null:
-		return
-	#TODO: initiate part constructor here
 
+func _on_player_clicked_node(clicked_body_part : Node):
+	# this function is AWFUL i am so sorry - aria
+	
+	# confirm clicked node is of proper type to do the rest of this bs
+	if clicked_body_part is BaseBodyPart:
+		# grab the clicked node's parent
+		var clicked_body_part_holder : BaseBodyPartHolder = clicked_body_part.get_parent() as BaseBodyPartHolder
+		# pull the saved player scene from the SceneSwitcher global
+		var player_scene : ParentCreature = SceneSwitcher.get_player_scene().instantiate() as ParentCreature
+		# add player scene to the tree so we can actually change its data
+		get_tree().root.add_child(player_scene)
+		# grab the player-equivalent BodyPartHolder that was clicked on the enemy (left arm clicked -> grab left arm)
+		var matched_holder : BaseBodyPartHolder = player_scene.find_child(clicked_body_part_holder.name) as BaseBodyPartHolder
+		# pack the clicked body part into a PackedScene to pass into the set_body_part() function
+		var packed_body_part : PackedScene = PackedScene.new()
+		packed_body_part.pack(clicked_body_part)
+		# pass in value to player's BodyPartHolder
+		matched_holder.set_body_part(packed_body_part)
+		# save altered player scene to SceneSwitcher
+		SceneSwitcher.save_player_scene(player_scene)
+		# NUKE this off the face of the earth
+		player_scene.queue_free()
+		
+		instance_new_enemy(SceneSwitcher.get_player_scene())
+	else:
+		pass
+		#var player_scene : ParentCreature = SceneSwitcher.get_player_scene().instantiate() as ParentCreature
+		##TODO: add multiplier here
+		#SceneSwitcher.save_player_scene(player_scene)
 
 func debug():
 	# initialize an enemy to pass instance in the ACTUAL instance method
-	var debug_enemy : Node = PARENT_CREATURE.instantiate()
+	var debug_enemy : Node = load("res://Parent Creature/Scenes/parent_creature.tscn").instantiate()
 	
 	# just adding the creature to the scene tree
 	get_tree().root.add_child(debug_enemy)
@@ -57,6 +85,7 @@ func debug():
 	var packed_enemy : PackedScene = PackedScene.new()
 	packed_enemy.pack(debug_enemy)
 	
+	
 	# passing debug packed scene to the ACTUAL instancer
 	instance_new_enemy(packed_enemy)
-	
+	debug_enemy.queue_free()

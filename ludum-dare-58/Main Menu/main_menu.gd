@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var sfx_volume: HSlider = $MarginContainer/VBoxContainer/SettingMenu/HBoxContainer3/SFXVolume
 @onready var music_volume: HSlider = $MarginContainer/VBoxContainer/SettingMenu/HBoxContainer2/MusicVolume
 @onready var main_volume: HSlider = $MarginContainer/VBoxContainer/SettingMenu/HBoxContainer/MainVolume
@@ -24,7 +23,8 @@ func _ready() -> void:
 	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 
 func _on_play_pressed() -> void:
-	print("change scene")
+	print('change scene to tutorial scene')
+	SceneSwitcher.switch_scene("res://PartsCollection/Scenes/parts-collection.tscn")
 
 func _on_settings_pressed() -> void:
 	main_buttons.visible = false
