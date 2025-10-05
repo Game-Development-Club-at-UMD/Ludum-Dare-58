@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="res://Main Menu/default_bus_layout.tres"
 
+[autoload]
+
+SceneSwitcher="*res://scene_switcher.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -29,6 +33,8 @@ folder_colors={
 "res://Body Parts/": "red",
 "res://Buttons/": "blue",
 "res://Combat/": "orange",
+"res://CombatTimer/": "yellow",
+"res://Enemy/": "pink",
 "res://Limb Scenes/": "purple",
 "res://Main Menu/": "orange",
 "res://Moves/": "green",

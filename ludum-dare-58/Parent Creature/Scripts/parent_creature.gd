@@ -24,7 +24,7 @@ class_name ParentCreature
 ## Array of LimbHolder transforms for each body part
 var transforms : Dictionary[String, Transform3D]
 
-var moveDict : MoveHolder = MoveHolder.new()
+var moveHolder : MoveHolder = MoveHolder.new()
 
 ## Connects signals from BodyPartHolder nodes to their respective functions
 func _ready() -> void:
@@ -38,9 +38,9 @@ func _ready() -> void:
 	
 	MAX_HEALTH = current_health
 
-#func _process(_delta: float) -> void:
-	#if Input.is_action_just_released("ui_accept"):
-		#debug_limb_swapping()
+func _process(_delta: float) -> void:
+	if Input.is_action_just_released("ui_accept"):
+		debug_limb_swapping()
 
 ## Sets the transform of each LimbHolder node
 func _on_new_torso_part_instanced(new_torso : Torso):
@@ -54,21 +54,26 @@ func _on_new_torso_part_instanced(new_torso : Torso):
 @warning_ignore("unused_parameter")
 func _on_new_limb_part_instanced(new_limb : Limb):
 	pass
-#
-#func debug_limb_swapping():
-	#for holder in limb_holders:
-		#if holder.name != "Head":
-			#holder.set_body_part(load("res://Limb Scenes/Scenes/DebugLimb.tscn"))
-		#else:
-			#holder.set_body_part(load("res://Limb Scenes/Scenes/DebugHead.tscn"))
-	#torso.set_body_part(load("res://Limb Scenes/Scenes/DebugTorso.tscn"))
-	#
 
+func debug_limb_swapping():
+	for holder in limb_holders:
+		if holder.name != "Head":
+			holder.set_body_part(load("res://Limb Scenes/Scenes/DebugLimb.tscn"))
+		else:
+			holder.set_body_part(load("res://Limb Scenes/Scenes/DebugHead.tscn"))
+	torso.set_body_part(load("res://Limb Scenes/Scenes/DebugTorso.tscn"))
+	addMovesToMoveDict()
+	
+##Adds all moves from limbs to a dictionary in moveHolder
 func addMovesToMoveDict():
-	moveDict.clearDict()
+	#Clear previous moves in dict
+	moveHolder.clearDict()
+	#Go throuh all limbs and add their moves to the moveDict
 	for child in get_children():
 		if child is BaseBodyPartHolder:
-			moveDict.addtoMoveDict(child.get_body_part().get_body_part_resource().getMove())
+			if !moveHolder.checkIfValueExists(child.get_body_part().get_body_part_resource().getMove()):
+				moveHolder.addtoMoveDict("Move" + str(moveHolder.moveDict.size() + 1),child.get_body_part().get_body_part_resource().getMove())
+			
 
 func getMaxHealth() -> int:
 	return MAX_HEALTH
@@ -87,3 +92,8 @@ func getDamage() -> int:
 # Subtracts `val` to current health.
 func subtractHealth(val: int) -> void:
 	current_health = clamp(getCurrentHealth() - val, 0, MAX_HEALTH)
+
+## Returns the dictionary in moveHolder
+func getMovesHolder() -> MoveHolder:
+	return moveHolder
+	
