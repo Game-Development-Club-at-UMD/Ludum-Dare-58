@@ -21,7 +21,6 @@ buses/default_bus_layout="res://Main Menu/default_bus_layout.tres"
 
 [autoload]
 
-State="*res://Combat/State.gd"
 SceneSwitcher="*res://scene_switcher.gd"
 
 [display]
