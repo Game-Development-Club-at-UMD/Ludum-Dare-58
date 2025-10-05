@@ -12,8 +12,9 @@ func set_body_part(new_part : PackedScene):
 		return null
 	
 	add_child(instanced_part)
-	instanced_part.global_position = global_position
 	instanced_part.owner = self.get_parent()
+	instanced_part.global_transform = global_transform
+	
 	if body_part != null:
 		body_part.queue_free()
 	body_part = instanced_part

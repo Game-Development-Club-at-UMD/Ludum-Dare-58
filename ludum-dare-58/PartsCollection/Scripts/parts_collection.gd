@@ -1,6 +1,7 @@
 class_name PartsCollection extends Node3D
 
 var enemy : ParentCreature
+@onready var enemy_holder: Node3D = $EnemyHolder
 
 @export var player_controller : PlayerController
 
@@ -23,10 +24,15 @@ func instance_new_enemy(new_enemy : PackedScene):
 	
 	self.add_child(instanced_enemy)
 	
-	instanced_enemy.global_position = global_position
+	#TODO: fix enemy spawning in at the correct position/rotation
+	enemy_holder.add_child(instanced_enemy)
+	instanced_enemy.global_transform = enemy_holder.global_transform
+	
+	
 	if enemy != null:
 		enemy.queue_free()
 	enemy = instanced_enemy
+	enemy.global_transform = enemy_holder.global_transform
 
 
 func _on_player_clicked_node(clicked_body_part : Node):
