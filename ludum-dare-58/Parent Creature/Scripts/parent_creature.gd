@@ -56,6 +56,7 @@ func _on_new_limb_part_instanced(new_limb : Limb):
 
 func addMovesToMoveDict():
 	moveDict.clearDict()
-	for child in get_children():
-		if child is BaseBodyPartHolder:
-			moveDict.addtoMoveDict(child.get_body_part().get_body_part_resource().getMove())
+	for childIndex in range(0, get_child_count()):
+		if get_child(childIndex) is BaseBodyPartHolder:
+			moveDict.addtoMoveDict("Move" + str(childIndex + 1),get_child(childIndex).get_body_part().get_body_part_resource().getMove())
+			
