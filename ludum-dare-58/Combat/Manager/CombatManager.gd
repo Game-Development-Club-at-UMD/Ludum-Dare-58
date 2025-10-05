@@ -5,7 +5,6 @@ class_name CombatManager extends Node3D
 @onready var player: Player = %Player
 
 var dodging : bool = false
-var playerMaxHealth : int
 
 
 func _ready() -> void:
@@ -37,4 +36,4 @@ func callMoveOnEnemy(moveToCall : Move):
 	moveToCall.DoMove(enemy)
 
 func getPlayerMaxHealth(pMaxHealth : int):
-	playerMaxHealth = pMaxHealth
+	pass
