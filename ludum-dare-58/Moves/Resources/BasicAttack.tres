@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_aym0l")
 Damage_Value = 5
+name = "Attack1"
 metadata/_custom_type_script = "uid://deu8bkwxhb0im"
