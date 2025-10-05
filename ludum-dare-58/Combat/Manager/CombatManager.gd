@@ -5,21 +5,24 @@ class_name CombatManager extends Node3D
 var dodging : bool = false
 
 func _ready() -> void:
-	dodgeButton.connect("dodgeStart", isDodging)
-	dodgeButton.connect("dodgeEnd", stopDodging)
+	dodgeButton.connect("dodgeStart", dodgeStart)
+	dodgeButton.connect("dodgeEnd", dodgeEnd)
 	
 	enemy.connect("sendEnemyMove", callMoveOnPlayer)
 	#player.connect("sendPlayerMove", callMoveOnPlayer)
-
+	
+	# give the player a moment to digest the scene before starting attack
+	await get_tree().create_timer(5).timeout
+	# do enemy attack here to start the cycle of dodging and whatnot
 
 func switchTurn():
 	pass
 
 
-func isDodging():
+func dodgeStart():
 	dodging = true
 
-func stopDodging():
+func dodgeEnd():
 	dodging = false
 
 

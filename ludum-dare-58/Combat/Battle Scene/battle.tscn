@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d4jalbtjm0yrc" path="res://Combat/Manager/CombatManager.gd" id="1_16hna"]
 [ext_resource type="PackedScene" uid="uid://b6ic7wsg00p1j" path="res://Enemy/enemy.tscn" id="2_16hna"]
 [ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="2_fd3ov"]
-[ext_resource type="Texture2D" uid="uid://toihdn7brrw5" path="res://icon.svg" id="3_i431l"]
+[ext_resource type="Texture2D" uid="uid://ca88jmepuw7wh" path="res://icon.svg" id="3_i431l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.99607843, 0, 0, 1)
@@ -25,6 +25,7 @@ unique_name_in_owner = true
 position = Vector2(570, 533)
 
 [node name="Playerstats" type="Panel" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

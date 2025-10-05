@@ -15,10 +15,10 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	# aria: assuming this is for debug purposes?
 	if Input.is_action_just_pressed("Dodge") and cooldown_timer.is_stopped():
 		label.add_theme_color_override("font_color", Color(1, 1, 1, 0.5))
 		startDodge()
-		
 
 
 func startDodge() -> void:
