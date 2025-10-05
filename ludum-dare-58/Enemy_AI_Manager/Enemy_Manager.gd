@@ -6,6 +6,7 @@ extends Node
 var health : int = 21
 var Damage : int 
 var AttackHPC : bool
+var selfDamage : int
 
 # AI dosnt Kill itself with moves that do self damage	
 func AttackHPCheck(SelfDamage) -> bool:
@@ -15,26 +16,22 @@ func AttackHPCheck(SelfDamage) -> bool:
 		return false
 	
 # Random Selection of one of the 4 moves	
-func SelectMove(move) -> int:
+func SelectMove(move):
 	match move:
 		1:
+#			Needs to be able to return that certain mvoes damage
 			print("move1")
-			Damage = 30
-			return Damage
 		2:
 			print("move2")
-			Damage = 28
-			return Damage
 		3:
 			print("move3")
-			Damage = 25
-			return Damage
 		4:
 			print("move4")
-			Damage = 15
-			return Damage
 		_: 
 			return Damage
+
+func SendDamageToPlayer() -> void:
+	pass
 
 func _ready() -> void:
 	while(true):
@@ -42,8 +39,10 @@ func _ready() -> void:
 		print("AttackMove: ", attackMove)
 		SelectMove(attackMove)
 		
-		AttackHPC = AttackHPCheck(SelectMove(attackMove))
-		if AttackHPC:
-			break
-		else:
-			pass
+		#AttackHPC = AttackHPCheck(SelectMove(attackMove))
+		#if AttackHPC:
+			#break
+		#else:
+			#pass
+		
+		if(move.hasSelfDamage)
