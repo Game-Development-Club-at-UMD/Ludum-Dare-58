@@ -20,6 +20,8 @@ class_name ParentCreature
 ## Array of LimbHolder transforms for each body part
 var transforms : Dictionary[String, Transform3D]
 
+var moveDict : Dictionary[String, Move]
+
 ## Connects signals from BodyPartHolder nodes to their respective functions
 func _ready() -> void:
 	torso.connect("instancing_new_torso", _on_new_torso_part_instanced)

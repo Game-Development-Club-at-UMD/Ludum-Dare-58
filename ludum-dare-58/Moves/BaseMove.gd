@@ -1,4 +1,8 @@
 class_name Move
 extends Resource
 
-@export var Name : String = ""
+@export var name : String = ""
+
+
+func getName() -> String:
+	return name
