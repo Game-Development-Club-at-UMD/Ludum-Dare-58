@@ -1,6 +1,5 @@
 class_name PartsCollection extends Node3D
 
-
 var enemy : ParentCreature
 
 @export var player_controller : PlayerController
@@ -22,9 +21,7 @@ func instance_new_enemy(new_enemy : PackedScene):
 		instanced_enemy.queue_free()
 		return null
 	
-	
 	self.add_child(instanced_enemy)
-	instanced_enemy.owner = self
 	
 	instanced_enemy.global_position = global_position
 	if enemy != null:
@@ -55,7 +52,6 @@ func _on_player_clicked_node(clicked_body_part : Node):
 		# NUKE this off the face of the earth
 		player_scene.queue_free()
 		
-		instance_new_enemy(SceneSwitcher.get_player_scene())
 	else:
 		pass
 		#var player_scene : ParentCreature = SceneSwitcher.get_player_scene().instantiate() as ParentCreature
@@ -68,7 +64,6 @@ func debug():
 	
 	# just adding the creature to the scene tree
 	get_tree().root.add_child(debug_enemy)
-	#debug_enemy.visible = false
 	
 	# initializing all body parts with values
 	debug_enemy.torso.set_body_part(load("res://Limb Scenes/Scenes/DebugTorso.tscn"))
@@ -84,8 +79,7 @@ func debug():
 	## ^ if you do this on the same line, the function .pack() returns an Error object into the packed_enemy variable
 	var packed_enemy : PackedScene = PackedScene.new()
 	packed_enemy.pack(debug_enemy)
-	
-	
+	debug_enemy.queue_free()
 	# passing debug packed scene to the ACTUAL instancer
 	instance_new_enemy(packed_enemy)
-	debug_enemy.queue_free()
+	

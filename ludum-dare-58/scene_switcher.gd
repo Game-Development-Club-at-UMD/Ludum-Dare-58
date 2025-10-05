@@ -28,16 +28,4 @@ func save_enemy_scene(enemy : ParentCreature):
 	packed_enemy_scene = new_packed_scene
 
 func switch_scene(scene_path : String):
-	#method 1: scenes switch with a bit of a load delay
-	#var old_scene = get_tree().current_scene
-	#get_tree().change_scene_to_file(scene_path)
-	#old_scene.queue_free()
-	# method 2: scenes switch without waiting for load
-	if !FileAccess.file_exists(scene_path):
-		push_error("Error in SceneSwitcher, file does not exist at ", scene_path)
-	var old_scene = get_tree().current_scene
-	var new_scene = load(scene_path).instantiate()
-	get_tree().root.add_child(new_scene)
-	new_scene.owner = get_tree().root
-	old_scene.queue_free()
-	get_tree().current_scene = new_scene
+	get_tree().change_scene_to_file(scene_path)
