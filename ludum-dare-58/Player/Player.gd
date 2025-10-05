@@ -2,10 +2,9 @@ class_name Player extends ParentCreature
 
 
 #Signal Max Health
-signal maxHealth()
+#signal maxHealth()
 
 #Signal Attack
-signal attackEnemy()
 
 
 #Function to alter health

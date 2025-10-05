@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp2prdao74j3h"]
+[gd_scene load_steps=9 format=3 uid="uid://cp2prdao74j3h"]
 
 [ext_resource type="Script" uid="uid://d4jalbtjm0yrc" path="res://Combat/Manager/CombatManager.gd" id="1_16hna"]
 [ext_resource type="PackedScene" uid="uid://b6ic7wsg00p1j" path="res://Enemy/enemy.tscn" id="2_16hna"]
 [ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="2_fd3ov"]
-[ext_resource type="Texture2D" uid="uid://toihdn7brrw5" path="res://icon.svg" id="3_i431l"]
+[ext_resource type="PackedScene" uid="uid://b06tbbb80heof" path="res://Player/player.tscn" id="3_fd3ov"]
+[ext_resource type="Texture2D" uid="uid://dstft2ogyxgit" path="res://icon.svg" id="3_i431l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.99607843, 0, 0, 1)
@@ -18,6 +19,9 @@ bg_color = Color(0.972549, 0, 0.019607844, 1)
 script = ExtResource("1_16hna")
 
 [node name="Enemy" parent="." instance=ExtResource("2_16hna")]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("3_fd3ov")]
 unique_name_in_owner = true
 
 [node name="DodgeButton" parent="." instance=ExtResource("2_fd3ov")]
