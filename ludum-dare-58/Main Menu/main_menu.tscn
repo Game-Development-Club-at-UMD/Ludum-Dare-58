@@ -24,7 +24,7 @@ theme_override_constants/separation = 50
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "The Creature Collector"
+text = "CritBash"
 label_settings = SubResource("LabelSettings_pqn6e")
 horizontal_alignment = 1
 vertical_alignment = 1

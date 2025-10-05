@@ -26,8 +26,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if face_ray_cast.is_colliding() && face_ray_cast.get_collider().is_in_group("interact"):
 			var node_clicked = face_ray_cast.get_collider().get_parent()
-			print(node_clicked, " was clicked")
 			player_action.emit(node_clicked)
+			print(node_clicked, " was clicked")
 	
 
 

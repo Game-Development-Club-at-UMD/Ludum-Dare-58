@@ -35,6 +35,7 @@ folder_colors={
 "res://Combat/": "orange",
 "res://CombatTimer/": "yellow",
 "res://Enemy/": "pink",
+"res://Enemy_AI_Manager/": "pink",
 "res://Limb Scenes/": "purple",
 "res://Main Menu/": "orange",
 "res://Moves/": "green",
