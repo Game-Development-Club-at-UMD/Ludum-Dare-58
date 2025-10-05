@@ -7,7 +7,7 @@ var mouse_sensitivity = 0.0018
 
 ## Emits when the player clicks on a node in group "interact", connected to a function by
 ## whatever root scene is currently active
-signal player_action(limb_holder_clicked : Node, limb : PackedScene)
+signal player_action(limb_holder_clicked : Node)
 
 func _ready() -> void:
 	#face_ray_cast.enabled = true
@@ -27,14 +27,7 @@ func _process(delta: float) -> void:
 		if face_ray_cast.is_colliding() && face_ray_cast.get_collider().is_in_group("interact"):
 			var node_clicked = face_ray_cast.get_collider().get_parent()
 			print(node_clicked, " was clicked")
-			if node_clicked is BaseBodyPart:
-				print('body part clicked, packing as scene and emitting')
-				var packed_part_scene : PackedScene = PackedScene.new()
-				packed_part_scene.pack(node_clicked)
-				player_action.emit(node_clicked.get_parent(), packed_part_scene)
-			else:
-				print('node clicked was not a body part, emitting node clicked')
-				player_action.emit(node_clicked)
+			player_action.emit(node_clicked)
 	
 
 
