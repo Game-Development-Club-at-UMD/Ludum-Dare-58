@@ -79,14 +79,11 @@ func getCurrentHealth() -> int:
 func getDamage() -> int:
 	return damage
 	
-	
-func setHealth(new_health: int) -> int:
-	new_health = max(new_health, 0)				# Clamp to [0, new_health]
-	new_health = min(new_health, MAX_HEALTH)	# Clamp to [0, MAX_HEALTH]
-	
-	current_health = new_health
-	return current_health
-	
-# Adds `val` to current health. Will subtract health if val is negative
-func modifyHealth(val: int) -> int:
-	return setHealth(getCurrentHealth() + val)
+# Sets passed in maxHealth to MAX_HEALTH (Already being done in the _ready func)
+#func setMaxHealth(maxHealth : int):
+	#MAX_HEALTH = maxHealth
+
+
+# Subtracts `val` to current health.
+func subtractHealth(val: int) -> void:
+	current_health = clamp(getCurrentHealth() - val, 0, MAX_HEALTH)
