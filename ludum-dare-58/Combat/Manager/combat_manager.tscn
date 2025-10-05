@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://duuy661qaoaco"]
+[gd_scene load_steps=4 format=3 uid="uid://6drharspt83i"]
 
 [ext_resource type="Script" uid="uid://d4jalbtjm0yrc" path="res://Combat/Manager/CombatManager.gd" id="1_3m3na"]
 [ext_resource type="PackedScene" uid="uid://c6a7ifv5dqitu" path="res://Buttons/DodgeButton.tscn" id="2_mcrup"]
+[ext_resource type="Script" uid="uid://dh1vhk28np72i" path="res://Enemy/Enemy.gd" id="3_t5fjb"]
 
 [node name="CombatManager" type="Node"]
 script = ExtResource("1_3m3na")
 metadata/_custom_type_script = "uid://d4jalbtjm0yrc"
 
 [node name="DodgeButton" parent="." instance=ExtResource("2_mcrup")]
+unique_name_in_owner = true
 position = Vector2(570, 533)
+
+[node name="Enemy" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_t5fjb")
+metadata/_custom_type_script = "uid://dh1vhk28np72i"
