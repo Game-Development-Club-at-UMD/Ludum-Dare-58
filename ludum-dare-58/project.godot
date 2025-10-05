@@ -34,7 +34,8 @@ folder_colors={
 "res://Limb Scenes/": "purple",
 "res://Main Menu/": "orange",
 "res://Moves/": "green",
-"res://Parent Creature/": "blue"
+"res://Parent Creature/": "blue",
+"res://Player/": "pink"
 }
 
 [input]
