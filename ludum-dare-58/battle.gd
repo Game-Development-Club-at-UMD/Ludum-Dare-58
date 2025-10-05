@@ -1,6 +1,7 @@
 extends Node
 
 @export var enemy: Resource = null
+@export var adaptabe_button: Resource = null 
 
 var current_player_health= 0  
 var current_enemy_health = 0
@@ -9,6 +10,10 @@ signal textbox_closed
 
 
 func _ready():
+	
+	##var attack_button = load("res://Combat/Scenes/attack_button.tscn")
+	##var new_attack_button = attack_button.instantiate()
+	##add_child(new_attack_button) 
 	
 	
 	displaytext("a wild p-whizz has appeared!!!!!!! ")
@@ -22,10 +27,15 @@ func _ready():
 	current_player_health = State.current_health
 	current_enemy_health = enemy.health 
 	
+
+	
+	
+	
 func set_health(health, max_health, progress_bar): 
 	progress_bar.value = health
 	progress_bar.max_value = max_health
 	progress_bar.get_node("Label").text = "HP:%d/%d" % [health, max_health]	 
+
 	
 	
 	

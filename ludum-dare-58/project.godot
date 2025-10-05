@@ -11,17 +11,17 @@ config_version=5
 [application]
 
 config/name="Ludum Dare 58"
-run/main_scene="res://battle.tscn"
+run/main_scene="uid://bw60xnyu3rpih"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-State="*res://Combat/State.gd"
 
 [audio]
 
 buses/default_bus_layout="res://Main Menu/default_bus_layout.tres"
+
+[autoload]
+
+State="*res://Combat/State.gd"
 
 [display]
 

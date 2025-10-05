@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dijnhl2lp636u"]
+
+[ext_resource type="Texture2D" uid="uid://civy0bjpo5v0d" path="res://IMG_6062.jpg" id="1_f6hjg"]
+
+[sub_resource type="GDScript" id="GDScript_f6hjg"]
+script/source = "extends Button
+"
+
+[sub_resource type="GDScript" id="GDScript_os36q"]
+script/source = "extends GridContainer
+"
+
+[node name="AttackButton" type="Button"]
+offset_right = 252.0
+offset_bottom = 66.0
+script = SubResource("GDScript_f6hjg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -30.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(28, 31)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_f6hjg")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_os36q")
