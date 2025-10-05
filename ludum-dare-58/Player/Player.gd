@@ -15,7 +15,7 @@ func updateCurrentHealthUI() -> void:
 	sendCurrentHealth.emit(getCurrentHealth())
 
 
-# Debugger to test
+
 func _ready() -> void:
 	#sendMaxHealth.emit(getMaxHealth())
 	#sendCurrentHealth.emit(getCurrentHealth())
