@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcqr8kwlrxj5o"]
+[gd_scene load_steps=4 format=3 uid="uid://dcqr8kwlrxj5o"]
 
-[ext_resource type="Texture2D" uid="uid://civy0bjpo5v0d" path="res://IMG_6062.jpg" id="1_mrtul"]
+[ext_resource type="Script" uid="uid://5mkyhxxsx882" path="res://Combat/Scenes/button_move.gd" id="1_hy5oc"]
+[ext_resource type="Texture2D" uid="uid://bfhp6y7dyg4qb" path="res://IMG_6062.jpg" id="1_mrtul"]
+[ext_resource type="Script" uid="uid://hy0jl7cnchdm" path="res://Combat/Scenes/button_create.gd" id="2_vec2m"]
 
 [node name="AttackButton" type="Button"]
 offset_right = 81.0
 offset_bottom = 26.0
+script = ExtResource("1_hy5oc")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -23,3 +26,9 @@ grow_vertical = 2
 position = Vector2(10, 12)
 scale = Vector2(0.0028935154, 0.004650303)
 texture = ExtResource("1_mrtul")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_vec2m")

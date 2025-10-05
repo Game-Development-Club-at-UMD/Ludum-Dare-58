@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dijnhl2lp636u"]
 
-[ext_resource type="Texture2D" uid="uid://civy0bjpo5v0d" path="res://IMG_6062.jpg" id="1_f6hjg"]
+[ext_resource type="Texture2D" uid="uid://bfhp6y7dyg4qb" path="res://IMG_6062.jpg" id="1_f6hjg"]
 
 [sub_resource type="GDScript" id="GDScript_f6hjg"]
 script/source = "extends Button

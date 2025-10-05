@@ -8,6 +8,9 @@ extends Move
 
 var modifier : Modifier = Modifier.new()
 
+func getAttack():
+	return Damage_Value
+
 func DoAttack():
 	print(modifier_type)
 	Damage_Value = modifier.apply_modifier(modifier_type, Damage_Value)
