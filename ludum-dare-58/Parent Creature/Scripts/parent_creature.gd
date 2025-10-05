@@ -1,6 +1,10 @@
 extends Node3D
 class_name ParentCreature
 
+@onready var MAX_HEALTH: int
+@onready var current_health: int
+@onready var damage: int
+
 ## TorsoHolder for the creature's Torso object
 @onready var torso: TorsoHolder = $Torso
 ## LimbHolder for creature's left arm Limb object
@@ -27,6 +31,12 @@ func _ready() -> void:
 	torso.connect("instancing_new_torso", _on_new_torso_part_instanced)
 	for holder in limb_holders:
 		holder.connect("instancing_new_limb", _on_new_limb_part_instanced)
+		
+		var bpr: BodyPartResource = holder.get_body_part().get_body_part_resource()
+		current_health += bpr.getPartHealth()
+		damage += bpr.getPartAttack()
+	
+	MAX_HEALTH = current_health
 
 #func _process(_delta: float) -> void:
 	#if Input.is_action_just_released("ui_accept"):
@@ -59,3 +69,24 @@ func addMovesToMoveDict():
 	for child in get_children():
 		if child is BaseBodyPartHolder:
 			moveDict.addtoMoveDict(child.get_body_part().get_body_part_resource().getMove())
+
+func getMaxHealth() -> int:
+	return MAX_HEALTH
+	
+func getCurrentHealth() -> int:
+	return current_health
+	
+func getDamage() -> int:
+	return damage
+	
+	
+func setHealth(new_health: int) -> int:
+	new_health = max(new_health, 0)				# Clamp to [0, new_health]
+	new_health = min(new_health, MAX_HEALTH)	# Clamp to [0, MAX_HEALTH]
+	
+	current_health = new_health
+	return current_health
+	
+# Adds `val` to current health. Will subtract health if val is negative
+func modifyHealth(val: int) -> int:
+	return setHealth(getCurrentHealth() + val)
