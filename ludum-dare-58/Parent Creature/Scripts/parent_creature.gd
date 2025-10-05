@@ -20,7 +20,7 @@ class_name ParentCreature
 ## Array of LimbHolder transforms for each body part
 var transforms : Dictionary[String, Transform3D]
 
-var moveDict : Dictionary[String, Move]
+var moveDict : MoveHolder = MoveHolder.new()
 
 ## Connects signals from BodyPartHolder nodes to their respective functions
 func _ready() -> void:
@@ -53,3 +53,9 @@ func _on_new_limb_part_instanced(new_limb : Limb):
 			#holder.set_body_part(load("res://Limb Scenes/Scenes/DebugHead.tscn"))
 	#torso.set_body_part(load("res://Limb Scenes/Scenes/DebugTorso.tscn"))
 	#
+
+func addMovesToMoveDict():
+	moveDict.clearDict()
+	for child in get_children():
+		if child is BaseBodyPartHolder:
+			moveDict.addtoMoveDict(child.get_body_part().get_body_part_resource().getMove())
